@@ -24,7 +24,7 @@ class _LoginPageViewState extends State<LoginPageView> {
             children: [
               const Text(
                 textProje.login,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
               ),
               customSizedBox(context),
               RichText(
