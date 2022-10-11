@@ -5,6 +5,7 @@ import 'package:uplabslesson/appColor.dart';
 import 'package:uplabslesson/loginPage/widget/customElevatedButton.dart';
 import 'package:uplabslesson/loginPage/widget/customIcon.dart';
 import 'package:uplabslesson/loginPage/widget/customText.dart';
+import 'package:uplabslesson/loginPage/widget/customTextFormFiled.dart';
 import 'package:uplabslesson/text_proje.dart';
 
 class LoginPageView extends StatefulWidget {
@@ -21,7 +22,7 @@ class _LoginPageViewState extends State<LoginPageView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: AppSize.myAppPagePadding,
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +30,7 @@ class _LoginPageViewState extends State<LoginPageView> {
               const CustomText(
                 title: AppText.login,
                 fontWeight: FontWeight.bold,
-                fontSize: 25,
+                fontSize: AppSize.loginSize,
               ),
               customSizedBox(context),
               RichText(
@@ -51,9 +52,10 @@ class _LoginPageViewState extends State<LoginPageView> {
               const CustomTextFormFiled(
                   hintText: AppText.textFormFiledPassword,
                   sufficIcon: AppPath.textFormPasswordIcon),
-              customSizedBox(context),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Checkbox(
                       value: checkBoxValue,
@@ -117,27 +119,5 @@ class _LoginPageViewState extends State<LoginPageView> {
     textStyle,
   ) {
     return TextSpan(style: textStyle, text: textSpan);
-  }
-}
-
-class CustomTextFormFiled extends StatelessWidget {
-  const CustomTextFormFiled({
-    required this.hintText,
-    required this.sufficIcon,
-    Key? key,
-  }) : super(key: key);
-  final String hintText;
-  final Icon sufficIcon;
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-          hintText: hintText,
-          suffixIcon: sufficIcon,
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black),
-          ),
-          focusedBorder: const OutlineInputBorder()),
-    );
   }
 }
